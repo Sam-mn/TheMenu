@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-
+using TheMenu.Helpers;
 namespace TheMenu
 {
     internal class Program
@@ -37,13 +37,14 @@ namespace TheMenu
 
         private static void getTheThirdWord()
         {
-            Console.Write("Enter a sentence of at least 3 words: ");
-            string input = Console.ReadLine();
-
+    
+            string input = ValidationsHelpers.ChechIfValidString("Enter a sentence of at least 3 words: ");
             var words = input.Split(" ");
 
             if(words.Length >= 3)
             {
+                Console.WriteLine("____________________________________________________________________________");
+
                 Console.WriteLine($"The third word is: {words[2]}");
             }
             else
@@ -56,9 +57,9 @@ namespace TheMenu
 
         private static void repeatTenTimes()
         {
-            Console.Write("Write a text: ");
-            string text = Console.ReadLine();
+            string text = ValidationsHelpers.ChechIfValidString("Write a text: ");
 
+            Console.WriteLine("____________________________________________________________________________");
             for (int i = 1; i <= 10; i++)
             {
                 Console.Write($"{i}. {text}");
@@ -70,27 +71,27 @@ namespace TheMenu
             Console.WriteLine();
         }
 
+
+
         private static void checkTheAge()
         {
-            Console.WriteLine("How many people are you?");
-            int num = int.Parse(Console.ReadLine()!);
+            uint num = ValidationsHelpers.CheckIfValidIntgeer("How many people are you? ");
             int thePrice = 0;
 
             for(int i = 0; i < num; i++)
             {
-                Console.WriteLine($"Could you write your age for number {i + 1}?");
-                int age = int.Parse(Console.ReadLine()!);
+                uint age = ValidationsHelpers.CheckIfValidIntgeer($"Could you write your age for number {i + 1}? ");
 
                 if (age < 5) {
                     Console.WriteLine("Too yung to bay");
                     thePrice += 0;
                 }
-                else if (age < 20)
+                else if (age > 5 && age < 20)
                 {
                     Console.WriteLine("youth price: 80kr");
                     thePrice += 80;
                 }
-                else if (age > 64)
+                else if (age > 64 && age <= 100)
                 {
                     Console.WriteLine("Pensioner price: 90kr");
                     thePrice += 90;
@@ -106,19 +107,19 @@ namespace TheMenu
                     thePrice += 120;
                 }
             }
-
-            Console.WriteLine($"Antal personer: {num}");
+            Console.WriteLine("____________________________________________________________________________");
+            Console.WriteLine($"Number of people: {num}");
             Console.WriteLine($"Price: {thePrice}");
         }
 
         private static void ShowMainMeny()
         {
+            Console.WriteLine("____________________________________________________________________________");
             Console.WriteLine("You are now in the main menu, and you can chose a number between 0 and 2 to test our function.");
             Console.WriteLine("0. Close the program");
             Console.WriteLine("1. Youth or pensioner");
             Console.WriteLine("2. Try repeat function");
             Console.WriteLine("3. The third word");
-
         }
     }
 }
