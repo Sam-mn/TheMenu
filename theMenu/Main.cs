@@ -96,10 +96,14 @@ namespace theMenu
                     Console.WriteLine("Free entry");
                     thePrice += 0;
                 }
-                else if (age > 5 && age < 20)
+                else if (age >= 5 && age < 20)
                 {
                     Console.WriteLine("youth price: 80kr");
                     thePrice += 80;
+                }else if(age >= 20 && age <= 64)
+                {
+                    Console.WriteLine("Standard price: 120kr");
+                    thePrice += 120;
                 }
                 else if (age > 64 && age <= 100)
                 {
@@ -110,11 +114,6 @@ namespace theMenu
                 {
                     Console.WriteLine("Free entry");
                     thePrice += 0;
-                }
-                else
-                {
-                    Console.WriteLine("Standard price: 120kr");
-                    thePrice += 120;
                 }
             }
             Console.WriteLine("____________________________________________________________________________");
