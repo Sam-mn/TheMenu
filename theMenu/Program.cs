@@ -83,7 +83,7 @@ namespace TheMenu
                 uint age = ValidationsHelpers.CheckIfValidIntgeer($"Could you write your age for number {i + 1}? ");
 
                 if (age < 5) {
-                    Console.WriteLine("Too yung to bay");
+                    Console.WriteLine("Free entry");
                     thePrice += 0;
                 }
                 else if (age > 5 && age < 20)
@@ -98,7 +98,7 @@ namespace TheMenu
                 }
                 else if(age > 100)
                 {
-                    Console.WriteLine("If you are over 100 and still alive, we will pay for you");
+                    Console.WriteLine("Free entry");
                     thePrice += 0;
                 }
                 else
@@ -115,11 +115,11 @@ namespace TheMenu
         private static void ShowMainMeny()
         {
             Console.WriteLine("____________________________________________________________________________");
-            Console.WriteLine("You are now in the main menu, and you can chose a number between 0 and 2 to test our function.");
-            Console.WriteLine("0. Close the program");
-            Console.WriteLine("1. Youth or pensioner");
-            Console.WriteLine("2. Try repeat function");
-            Console.WriteLine("3. The third word");
+            Console.WriteLine("You are now in our main menu, and you can chose a number between 1 and 3 to test our functions or 0 to close the menu.");
+            Console.WriteLine("0. Close the menu");
+            Console.WriteLine("1. Check how much it will cost you to watch a movie with your family or friends");
+            Console.WriteLine("2. Repeat everything you write ten times");
+            Console.WriteLine("3. Print the third word you write");
         }
     }
 }
